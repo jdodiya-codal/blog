@@ -5,10 +5,11 @@ import HeroCard from '@/components/atom/HeroCard'
 import React from 'react'
 import PopularPostCard from '@/components/atom/PopularPostCard'
 import GridCard from '@/components/atom/GridCard'
+import {Category, Post} from '@/lib/types'
 
 export default async function Home() {
-  const categories = await sanity.fetch(getCategoriesQuery)
-  const posts = await sanity.fetch(getPostsQuery)
+  const categories: Category = await sanity.fetch(getCategoriesQuery)
+  const posts: Post = await sanity.fetch(getPostsQuery)
 
   console.log(posts)
 

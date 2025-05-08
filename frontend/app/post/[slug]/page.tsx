@@ -1,12 +1,7 @@
 // app/post/[slug]/page.tsx
 import PortablePost from '@/components/atom/PortablePost'
 import {sanity} from '@/lib/sanity'
-import {
-  getAdvertisingForArticleQuery,
-  getCategoriesQuery,
-  getPostBySlugQuery,
-  getPostsQuery,
-} from '@/lib/queries'
+import {getAdvertisingForArticleQuery, getPostBySlugQuery, getPostsQuery} from '@/lib/queries'
 import {Post} from '@/types/Post'
 import {notFound} from 'next/navigation'
 import urlFor from '@/lib/image'
