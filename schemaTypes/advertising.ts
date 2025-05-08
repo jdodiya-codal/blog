@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'category',
-  title: 'Category',
+  name: 'advertising',
+  title: 'Advertising',
   type: 'document',
   fields: [
     defineField({
@@ -11,17 +11,23 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
+      name: 'ctaUrl',
+      title: 'CTA Url',
+      type: 'string',
     }),
     defineField({
-      name: 'mainImage',
-      title: 'Main image',
+      name: 'image',
+      title: 'Image',
       type: 'image',
       options: {
         hotspot: true,
       },
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'image',
+    },
+  },
 })
