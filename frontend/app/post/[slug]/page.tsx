@@ -2,7 +2,6 @@
 import PortablePost from '@/components/atom/PortablePost'
 import {sanity} from '@/lib/sanity'
 import {getAdvertisingForArticleQuery, getPostBySlugQuery, getPostsQuery} from '@/lib/queries'
-import {Post} from '@/types/Post'
 import {notFound} from 'next/navigation'
 import urlFor from '@/lib/image'
 import React from 'react'
@@ -10,12 +9,8 @@ import SidebarCard from '@/components/atom/SidebarCard'
 import AdvertisingCard from '@/components/atom/AdvertisingCard'
 import PopularPostCard from '@/components/atom/PopularPostCard'
 
-interface Props {
-  params: {slug: string}
-}
-
-export default async function PostDetail({params}: Props) {
-  const post: Post = await sanity.fetch(getPostBySlugQuery(params.slug))
+export default async function PostDetail({params}) {
+  const post = await sanity.fetch(getPostBySlugQuery(params.slug))
   const posts = await sanity.fetch(getPostsQuery)
   const advertising = await sanity.fetch(getAdvertisingForArticleQuery)
   console.log(advertising)

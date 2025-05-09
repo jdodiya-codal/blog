@@ -2,11 +2,10 @@ import {getCategoriesQuery, getInstagramImagesQuery} from '@/lib/queries'
 import {sanity} from '@/lib/sanity'
 import React from 'react'
 import InstagramImageCard from './atom/InstagramImageCard'
-import {Category, Post} from '@/lib/types'
 
 export default async function Footer() {
-  const categories: Category = await sanity.fetch(getCategoriesQuery)
-  const posts: Post = await sanity.fetch(getInstagramImagesQuery)
+  const categories = await sanity.fetch(getCategoriesQuery)
+  const posts = await sanity.fetch(getInstagramImagesQuery)
 
   return (
     <footer className="mt-[50px] flex gap-8">
