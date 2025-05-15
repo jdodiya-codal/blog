@@ -56,6 +56,7 @@ export default async function Home() {
               description={post.description}
               author={post.author}
               publishedAt={post.publishedAt}
+              slug={post.slug.current}
             />
           </React.Fragment>
         ))}
@@ -83,6 +84,7 @@ export default async function Home() {
               description={post.description}
               author={post.author}
               publishedAt={post.publishedAt}
+              slug={post.slug.current}
             />
           </React.Fragment>
         ))}

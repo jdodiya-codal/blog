@@ -1,5 +1,7 @@
+import {defineQuery} from 'next-sanity'
+
 // lib/queries.js
-export const getPostsQuery = `*[_type == "post"]{
+export const getPostsQuery = defineQuery(`*[_type == "post"]{
   _id,
   title,
   slug,
@@ -13,10 +15,11 @@ export const getPostsQuery = `*[_type == "post"]{
     image,
     bio
   }
-}`
+}`)
 
 export const getCategoriesQuery = `*[_type == "category"]{
   _id,
+  slug,
   title,
   mainImage,
 }`
@@ -31,7 +34,8 @@ export const getPostBySlugQuery = (slug) => `
     body,
     author->{
       name,
-      image
+      image,
+      slug
     }
   }
 `
@@ -47,3 +51,56 @@ export const getInstagramImagesQuery = `*[_type == "instagram"]{
   image,
   username,
 }`
+
+export const getAuthorDetail = (slug) => `*[_type=='author' &&
+  slug.current == "${slug}"]{
+  name,
+  image,
+  bio,
+}[0]`
+
+export const getPostsByAuthor = (slug) => `*[_type=='post' &&
+author->slug.current == "${slug}"]{
+  _id,
+  title,
+  slug,
+  mainImage,
+  publishedAt,
+    author->{
+    _id,
+    name,
+    slug,
+    image,
+    bio
+  }
+}`
+
+export const getCategoryDetail = (slug) => `*[_type=='category' &&
+slug.current == "${slug}"]{
+title,
+mainImage,
+description,
+}[0]`
+
+export const getPostsByCategory = (slug) => `
+  *[_type == "post" && 
+    "${slug}" in categories[]->slug.current
+  ]{
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    author->{
+      _id,
+      name,
+      slug,
+      image,
+      bio
+    },
+    categories[]->{
+      title,
+      slug
+    }
+  }
+`

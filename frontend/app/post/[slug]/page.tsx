@@ -8,6 +8,7 @@ import React from 'react'
 import SidebarCard from '@/components/atom/SidebarCard'
 import AdvertisingCard from '@/components/atom/AdvertisingCard'
 import PopularPostCard from '@/components/atom/PopularPostCard'
+import Link from 'next/link'
 
 export default async function PostDetail({params}) {
   const post = await sanity.fetch(getPostBySlugQuery(params.slug))
@@ -69,29 +70,32 @@ export default async function PostDetail({params}) {
                 description={post.description}
                 author={post.author}
                 publishedAt={post.publishedAt}
+                slug={post.slug.current}
               />
             </React.Fragment>
           ))}
         </div>
       </div>
       <div className="w-[30%]">
-        <div className="flex items-center gap-4 p-4 bg-[#F5F5F5] rounded-[12px]">
-          <img
-            src={urlFor(post.author.image).width(500).url()}
-            alt=""
-            width={90}
-            height={90}
-            className="max-h-[90px] max-w-[90px] rounded-[12px]"
-          />
-          <div>
-            <h6 className="text-[16px] text-[#3E3232] font-semibold leading-[22px]">
-              {post.author.name}
-            </h6>
-            <button className="mt-[10px] px-[30px] py-[10px] rounded-[12px] text-white bg-[#F81539] text-[14px] opacity-75">
-              Follow
-            </button>
+        <Link href={`/author/${post.author.slug.current}`}>
+          <div className="flex items-center gap-4 p-4 bg-[#F5F5F5] rounded-[12px]">
+            <img
+              src={urlFor(post.author.image).width(500).url()}
+              alt=""
+              width={90}
+              height={90}
+              className="max-h-[90px] max-w-[90px] rounded-[12px]"
+            />
+            <div>
+              <h6 className="text-[16px] text-[#3E3232] font-semibold leading-[22px]">
+                {post.author.name}
+              </h6>
+              <button className="mt-[10px] px-[30px] py-[10px] rounded-[12px] text-white bg-[#F81539] text-[14px] opacity-75">
+                Follow
+              </button>
+            </div>
           </div>
-        </div>
+        </Link>
 
         <div className="rounded-[12px] flex flex-col mt-[40px] gap-6 bg-[#F5F5F5] p-4">
           <div className="flex items-center gap-2">

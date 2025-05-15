@@ -2,6 +2,7 @@ import {getCategoriesQuery, getInstagramImagesQuery} from '@/lib/queries'
 import {sanity} from '@/lib/sanity'
 import React from 'react'
 import InstagramImageCard from './atom/InstagramImageCard'
+import Link from 'next/link'
 
 export default async function Footer() {
   const categories = await sanity.fetch(getCategoriesQuery)
@@ -87,7 +88,9 @@ export default async function Footer() {
             <div className="ml-[10px]">
               {categories.map((card, index) => (
                 <React.Fragment key={index}>
-                  <p className="p-1 text-[#3E3232] text-[12px]">{card.title}</p>
+                  <Link href={`/category/${card.slug.current}`}>
+                    <p className="p-1 text-[#3E3232] text-[12px]">{card.title}</p>
+                  </Link>
                 </React.Fragment>
               ))}
             </div>

@@ -5,5 +5,17 @@ import author from './author'
 import advertising from './advertising'
 import instagram from './instagram'
 import {eventType} from './eventType'
+import {artistType} from './artistType'
+import {venueType} from './venueType'
 
-export const schemaTypes = [post, author, category, blockContent, advertising, instagram, eventType]
+export const schemaTypes = [
+  post,
+  author,
+  category,
+  blockContent,
+  advertising,
+  instagram,
+  eventType,
+  artistType,
+  venueType,
+]
