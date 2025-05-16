@@ -50,7 +50,7 @@ export default async function AuthorDetail({params}) {
           <img
             className="h-56 w-full object-cover object-top sm:h-72 md:h-96 lg:w-full lg:h-full"
             alt=""
-            src={urlFor(author.image).width(500).url()}
+            src={urlFor(author.image).width(1000).url()}
           />
         </div>
       </div>

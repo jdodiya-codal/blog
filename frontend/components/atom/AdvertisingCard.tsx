@@ -9,7 +9,7 @@ interface AdvertisingCardProps {
 
 export default function AdvertisingCard(props: AdvertisingCardProps) {
   return (
-    <Link href={`${props?.ctaUrl}`}>
+    <a href={`${props?.ctaUrl}`}>
       <div
         style={{
           backgroundImage: `url("${urlFor(props?.image).width(500).url()}")`,
@@ -23,6 +23,6 @@ export default function AdvertisingCard(props: AdvertisingCardProps) {
         <div className="absolute inset-0  backdrop-blur-xs z-0" />
         <h3 className="text-[20px] p-4 z-10">{props.title}</h3>
       </div>
-    </Link>
+    </a>
   )
 }

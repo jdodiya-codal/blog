@@ -12,7 +12,7 @@ interface PopularPostCardProps {
 
 export default function PopularPostCard(props: PopularPostCardProps) {
   return (
-    <Link href={`post/${props.slug}`}>
+    <Link href={`/post/${props.slug}`}>
       <div className="bg-white max-w-[360px] max-h-[389px] rounded-[12px] p-[10px]">
         <img
           src={urlFor(props?.mainImage).width(500).url()}

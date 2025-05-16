@@ -1,9 +1,12 @@
+import {BookIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
+  icon: BookIcon,
+
   fields: [
     defineField({
       name: 'title',

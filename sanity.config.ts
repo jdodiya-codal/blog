@@ -4,16 +4,23 @@ import {schemaTypes} from './schemaTypes'
 import {structureTool} from 'sanity/structure'
 import {structure} from './structure'
 import {defaultDocumentNode} from './structure/defaultDocumentNode'
+import Logo from './structure/logo'
 
 export default defineConfig({
   name: 'default',
-  title: 'blog',
+  title: 'Impilo Pop',
 
   projectId: '911h91ed',
   dataset: 'production',
 
-  // plugins: [structureTool({structure, defaultDocumentNode}), visionTool()],
-  plugins: [structureTool(), visionTool()],
+  studio: {
+    components: {
+      logo: Logo,
+    },
+  },
+
+  plugins: [structureTool({structure, defaultDocumentNode}), visionTool()],
+  // plugins: [structureTool(), visionTool()],
 
   schema: {
     types: schemaTypes,
