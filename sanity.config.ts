@@ -7,17 +7,18 @@ import {defaultDocumentNode} from './structure/defaultDocumentNode'
 import Logo from './structure/logo'
 
 export default defineConfig({
+  icon: Logo,
   name: 'default',
   title: 'Impilo Pop',
 
   projectId: '911h91ed',
   dataset: 'production',
 
-  studio: {
-    components: {
-      logo: Logo,
-    },
-  },
+  // studio: {
+  //   components: {
+  //     logo: Logo,
+  //   },
+  // },
 
   plugins: [structureTool({structure, defaultDocumentNode}), visionTool()],
   // plugins: [structureTool(), visionTool()],
