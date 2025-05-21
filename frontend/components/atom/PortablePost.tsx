@@ -1,5 +1,6 @@
 // components/PortablePost.tsx (optional, or inline in your page)
 
+import urlFor from '@/lib/image'
 import {PortableText} from '@portabletext/react'
 
 interface Props {
@@ -36,6 +37,24 @@ export default function PortablePost({value}: Props) {
               {children}
             </a>
           ),
+        },
+
+        types: {
+          image: ({value}) => {
+            const imageUrl = urlFor(value).width(800).url()
+            const alt = value.alt || 'Sanity Image'
+            return (
+              <div className="my-6">
+                <img
+                  src={imageUrl}
+                  alt={alt}
+                  width={600}
+                  height={350}
+                  className="rounded-md object-cover w-full h-auto"
+                />
+              </div>
+            )
+          },
         },
       }}
     />
