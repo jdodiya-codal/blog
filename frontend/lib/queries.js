@@ -107,7 +107,7 @@ export const getPostsByCategory = (slug) => `
 
 export const getSearchResultsQuery = `
   *[_type == "post" && 
-    (title match $query + "*" || description match $query + "*")
+    (title match $query1 + "*" || description match $query1 + "*")
   ]{
     _id,
     title,
