@@ -5,9 +5,9 @@ const PostListPage = ({posts}) => {
   return (
     <div className="mt-10 min-h-screen bg-white text-gray-800">
       {/* Header */}
-      <section className="bg-yellow-100 py-16 px-6 text-center">
-        <h1 className="text-4xl font-extrabold mb-4">Latest Blog Posts</h1>
-        <p className="max-w-2xl mx-auto text-lg text-gray-700">
+      <section className="bg-[linear-gradient(90deg,_rgba(253,29,29,1)_0%,_rgba(0,0,0,1)_100%)] py-16 px-6 text-center">
+        <h1 className="text-4xl text-white font-extrabold mb-4">Latest Blog Posts</h1>
+        <p className="max-w-2xl mx-auto text-lg text-white">
           Dive into insights, ideas, and inspiration from our team.
         </p>
       </section>
@@ -27,7 +27,6 @@ const PostListPage = ({posts}) => {
                   alt=""
                   width={44}
                   height={44}
-                  priority={index === 0}
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover w-full"
                 />

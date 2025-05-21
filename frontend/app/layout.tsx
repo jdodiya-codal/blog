@@ -3,6 +3,7 @@ import {Roboto} from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import TransitionProvider from '@/components/TransitionProvider'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -31,7 +32,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${roboto.variable} antialiased `}>
         <Navbar />
-        {children}
+        <TransitionProvider>{children}</TransitionProvider>
         <Footer />
       </body>
     </html>

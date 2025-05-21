@@ -13,9 +13,9 @@ const CategoriesPage = () => {
   return (
     <div className="mt-10 min-h-screen bg-white text-gray-800">
       {/* Header */}
-      <section className="bg-yellow-100 py-16 px-6 text-center">
-        <h1 className="text-4xl font-extrabold mb-4">Categories</h1>
-        <p className="max-w-2xl mx-auto text-lg text-gray-700">
+      <section className="bg-[linear-gradient(90deg,_rgba(253,29,29,1)_0%,_rgba(0,0,0,1)_100%)] py-16 px-6 text-center">
+        <h1 className="text-4xl font-extrabold mb-4 text-white">Categories</h1>
+        <p className="max-w-2xl mx-auto text-lg text-white">
           Explore articles by category. Find content that matters to you.
         </p>
       </section>

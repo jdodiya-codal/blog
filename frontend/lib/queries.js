@@ -104,3 +104,26 @@ export const getPostsByCategory = (slug) => `
     }
   }
 `
+
+export const getSearchResultsQuery = `
+  *[_type == "post" && 
+    (title match $query + "*" || description match $query + "*")
+  ]{
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    author->{
+      _id,
+      name,
+      slug,
+      image,
+      bio
+    },
+    categories[]->{
+      title,
+      slug
+    }
+  } | order(_createdAt desc)
+`
