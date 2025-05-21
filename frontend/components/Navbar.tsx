@@ -1,22 +1,32 @@
-import Button from './atom/Button'
-
-// interface NavbarProps {
-//   label?: string;
-// }
+import Link from 'next/link'
 
 export default function Navbar() {
   return (
     <nav className="flex justify-between items-center">
       <div>
-        <h1 className="text-[22px] text-[#FC4308] font-bold">Impilo Pop</h1>
+        <Link href={'/'}>
+          <h1 className="text-[22px] text-[#FC4308] font-bold">Impilo Pop</h1>
+        </Link>
       </div>
 
       <div>
         <ul className="flex gap-8">
-          <li className="text-[16px] text-black cursor-pointer hover:text-[#FC4308]">Categories</li>
-          <li className="text-[16px] text-black cursor-pointer hover:text-[#FC4308]">Pages</li>
-          <li className="text-[16px] text-black cursor-pointer hover:text-[#FC4308]">Contact Us</li>
-          <li className="text-[16px] text-black cursor-pointer hover:text-[#FC4308]">About Us</li>
+          <Link href={'/category'}>
+            <li className="text-[16px] text-black cursor-pointer hover:text-[#FC4308]">
+              Categories
+            </li>
+          </Link>
+          <Link href={'/post'}>
+            <li className="text-[16px] text-black cursor-pointer hover:text-[#FC4308]">Pages</li>
+          </Link>
+          <Link href={'/contact'}>
+            <li className="text-[16px] text-black cursor-pointer hover:text-[#FC4308]">
+              Contact Us
+            </li>
+          </Link>
+          <Link href={'/about'}>
+            <li className="text-[16px] text-black cursor-pointer hover:text-[#FC4308]">About Us</li>
+          </Link>
         </ul>
       </div>
       <input

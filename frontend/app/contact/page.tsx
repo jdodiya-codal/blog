@@ -39,7 +39,7 @@ const ThankYouPage = () => {
 }
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(true)
+  const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
