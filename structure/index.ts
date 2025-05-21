@@ -8,6 +8,7 @@ import {FiMusic} from 'react-icons/fi'
 import {SiAnimalplanet} from 'react-icons/si'
 import {IoCarSportSharp} from 'react-icons/io5'
 import {MdSportsSoccer} from 'react-icons/md'
+import {FaWpforms} from 'react-icons/fa'
 
 import {IoIosTrendingUp} from 'react-icons/io'
 
@@ -128,4 +129,5 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('event').title('Events').icon(MdEmojiEvents),
       S.documentTypeListItem('artist').title('Events Artist').icon(MdFace),
       S.documentTypeListItem('venue').title('Events Venues').icon(CiLocationArrow1),
+      S.documentTypeListItem('formSubmission').title('Forms').icon(FaWpforms),
     ])

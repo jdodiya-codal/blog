@@ -7,6 +7,7 @@ import instagram from './instagram'
 import {eventType} from './eventType'
 import {artistType} from './artistType'
 import {venueType} from './venueType'
+import formSubmission from './formSubmission'
 
 export const schemaTypes = [
   post,
@@ -18,4 +19,5 @@ export const schemaTypes = [
   eventType,
   artistType,
   venueType,
+  formSubmission,
 ]
