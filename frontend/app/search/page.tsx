@@ -55,11 +55,11 @@ const SearchResultsPage = ({query, posts}) => {
 import {sanity} from '@/lib/sanity'
 import {getSearchResultsQuery} from '@/lib/queries'
 
-interface Props {
-  searchParams: {q?: string}
-}
+// interface Props {
+//   searchParams: {q?: string}
+// }
 
-export default async function SearchPage({searchParams}: Props) {
+export default async function SearchPage({searchParams}: any) {
   const query1 = searchParams.q || ''
   const posts = query1 ? await sanity.fetch(getSearchResultsQuery, {query1}) : []
 
