@@ -11,6 +11,7 @@ import {MdSportsSoccer} from 'react-icons/md'
 import {FaWpforms} from 'react-icons/fa'
 
 import {IoIosTrendingUp} from 'react-icons/io'
+import {FaComment} from 'react-icons/fa'
 
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -130,4 +131,5 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('artist').title('Events Artist').icon(MdFace),
       S.documentTypeListItem('venue').title('Events Venues').icon(CiLocationArrow1),
       S.documentTypeListItem('formSubmission').title('Forms').icon(FaWpforms),
+      S.documentTypeListItem('comment').title('Comments').icon(FaComment),
     ])

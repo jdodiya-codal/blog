@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 const SearchResultsPage = ({query, posts}) => {
@@ -24,17 +23,18 @@ const SearchResultsPage = ({query, posts}) => {
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post, idx) => (
               <Link
-                href={`/blog/${post.slug.current}`}
+                href={`/post/${post.slug.current}`}
                 key={idx}
                 className="group relative block overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="relative h-52 w-full">
-                  <Image
-                    src={post.mainImage}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                <div className="relative w-full">
+                  <img
+                    src={urlFor(post.mainImage).width(500).url()}
+                    alt=""
+                    width={44}
+                    height={44}
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover w-full h-56"
                   />
                 </div>
                 <div className="p-5">
@@ -54,6 +54,7 @@ const SearchResultsPage = ({query, posts}) => {
 
 import {sanity} from '@/lib/sanity'
 import {getSearchResultsQuery} from '@/lib/queries'
+import urlFor from '@/lib/image'
 
 // interface Props {
 //   searchParams: {q?: string}

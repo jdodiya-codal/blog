@@ -10,8 +10,6 @@ export default async function Home() {
   const categories = await sanity.fetch(getCategoriesQuery)
   const posts = await sanity.fetch(getPostsQuery)
 
-  console.log(posts)
-
   return (
     <div>
       <div className="rounded-[12px] flex mt-[40px] gap-6 p-2 bg-[#F5F5F5]">

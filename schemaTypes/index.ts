@@ -8,6 +8,7 @@ import {eventType} from './eventType'
 import {artistType} from './artistType'
 import {venueType} from './venueType'
 import formSubmission from './formSubmission'
+import comment from './comment'
 
 export const schemaTypes = [
   post,
@@ -20,4 +21,5 @@ export const schemaTypes = [
   artistType,
   venueType,
   formSubmission,
+  comment,
 ]

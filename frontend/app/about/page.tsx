@@ -37,9 +37,9 @@ const AboutUsPage = () => {
   return (
     <div className="mt-10 min-h-screen bg-white text-gray-800">
       {/* Hero */}
-      <section className="bg-yellow-100 py-16 px-6 text-center">
-        <h1 className="text-4xl font-extrabold mb-4">About Us</h1>
-        <p className="max-w-2xl mx-auto text-lg text-gray-700">
+      <section className="bg-[linear-gradient(90deg,_rgba(253,29,29,1)_0%,_rgba(0,0,0,1)_100%)] py-16 px-6 text-center">
+        <h1 className="text-4xl font-extrabold mb-4 text-white">About Us</h1>
+        <p className="max-w-2xl mx-auto text-lg text-white">
           We’re a passionate team dedicated to building meaningful digital experiences.
         </p>
       </section>

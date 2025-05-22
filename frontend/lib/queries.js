@@ -22,6 +22,7 @@ export const getCategoriesQuery = `*[_type == "category"]{
   slug,
   title,
   mainImage,
+  description
 }`
 
 export const getPostBySlugQuery = (slug) => `
@@ -36,6 +37,11 @@ export const getPostBySlugQuery = (slug) => `
       name,
       image,
       slug
+    },
+     comments[]->{
+      _id,
+      comment,
+      createdAt
     }
   }
 `
@@ -126,4 +132,29 @@ export const getSearchResultsQuery = `
       slug
     }
   } | order(_createdAt desc)
+  
+`
+
+export const getCommentsByPostIdQuery = (postId) => `
+  *[_type == "comment" && post._ref == "${postId}"] | order(createdAt desc){
+    _id,
+    comment,
+    createdAt,
+    name,
+    email
+  }`
+
+export const getNestedCommentsQuery = (postId) => `
+  *[_type == "comment" && !defined(parent) && post._ref == "${postId}"] | order(createdAt asc) {
+    _id,
+    name,
+    comment,
+    createdAt,
+    "replies": *[_type == "comment" && parent._ref == ^._id] | order(createdAt asc) {
+      _id,
+      name,
+      comment,
+      createdAt
+    }
+  }
 `

@@ -1,7 +1,12 @@
-// app/post/[slug]/page.tsx
 import PortablePost from '@/components/atom/PortablePost'
 import {sanity} from '@/lib/sanity'
-import {getAdvertisingForArticleQuery, getPostBySlugQuery, getPostsQuery} from '@/lib/queries'
+import {
+  getAdvertisingForArticleQuery,
+  getCommentsByPostIdQuery,
+  getNestedCommentsQuery,
+  getPostBySlugQuery,
+  getPostsQuery,
+} from '@/lib/queries'
 import {notFound} from 'next/navigation'
 import urlFor from '@/lib/image'
 import React from 'react'
@@ -9,12 +14,16 @@ import SidebarCard from '@/components/atom/SidebarCard'
 import AdvertisingCard from '@/components/atom/AdvertisingCard'
 import PopularPostCard from '@/components/atom/PopularPostCard'
 import Link from 'next/link'
+import CommentCard from '@/components/CommentCard'
+import AddCommentForm from '@/components/AddCommentForm'
 
 export default async function PostDetail({params}) {
   const post = await sanity.fetch(getPostBySlugQuery(params.slug))
+  const comments = await sanity.fetch(getNestedCommentsQuery(post._id))
+
   const posts = await sanity.fetch(getPostsQuery)
   const advertising = await sanity.fetch(getAdvertisingForArticleQuery)
-  console.log(advertising)
+  console.log(comments)
 
   if (!post) return notFound()
 
@@ -75,6 +84,28 @@ export default async function PostDetail({params}) {
             </React.Fragment>
           ))}
         </div>
+
+        <div className="flex items-center gap-2 mt-[40px]">
+          <svg
+            width="4"
+            height="10"
+            viewBox="0 0 4 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="4" height="10" rx="2" fill="#F81539" />
+          </svg>
+
+          <h6 className="text-[20px] font-semibold text-[#3E3232]">Comments</h6>
+        </div>
+        <div className="rounded-[12px] mt-[40px] gap-6 ">
+          {comments.map((comment, index) => (
+            <React.Fragment key={index}>
+              <CommentCard comment={comment} postId={post._id} />
+            </React.Fragment>
+          ))}
+        </div>
+        <AddCommentForm id={post._id} />
       </div>
       <div className="w-[30%]">
         <Link href={`/author/${post.author.slug.current}`}>
@@ -121,6 +152,7 @@ export default async function PostDetail({params}) {
             </React.Fragment>
           ))}
         </div>
+
         <div className="mt-[40px] flex flex-col gap-6">
           {advertising.map((advertise, index) => (
             <React.Fragment key={index}>

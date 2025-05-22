@@ -9,19 +9,27 @@ const client = createClient({
   token: process.env.SANITY_WRITE_TOKEN, // Set in .env
 })
 
-export async function POST(req: Request) {
-  try {
-    const body = await req.json()
+export async function POST(req) {
+  const body = await req.json()
 
+  const {name, email, comment, post} = body
+
+  if (!name || !email || !comment) {
+    return NextResponse.json({error: 'Missing fields'}, {status: 400})
+  }
+
+  try {
     await client.create({
-      _type: 'formSubmission',
-      ...body,
-      submittedAt: new Date().toISOString(),
+      _type: 'comment',
+      name,
+      email,
+      comment,
+      post,
+      createdAt: new Date().toISOString(),
     })
 
     return NextResponse.json({success: true})
-  } catch (error) {
-    console.error('Submission failed:', error)
-    return NextResponse.json({success: false, error: 'Failed to submit'}, {status: 500})
+  } catch (err) {
+    return NextResponse.json({error: 'Failed to submit comment'}, {status: 500})
   }
 }
