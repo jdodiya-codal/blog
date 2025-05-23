@@ -6,6 +6,12 @@ import {notFound} from 'next/navigation'
 import urlFor from '@/lib/image'
 import React from 'react'
 import PopularPostCard from '@/components/atom/PopularPostCard'
+import {Metadata} from 'next'
+
+export const metadata: Metadata = {
+  title: 'Author',
+  description: 'Explore our top notch authors whos providing high quality content just for you',
+}
 
 export default async function AuthorDetail({params}) {
   const author = await sanity.fetch(getAuthorDetail(params.slug))

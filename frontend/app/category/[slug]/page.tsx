@@ -4,6 +4,14 @@ import {getCategoryDetail, getPostsByCategory} from '@/lib/queries'
 import urlFor from '@/lib/image'
 import React from 'react'
 import PopularPostCard from '@/components/atom/PopularPostCard'
+import {Metadata} from 'next'
+
+export async function generateMetadata({params}: any): Promise<Metadata> {
+  return {
+    title: params.slug,
+    description: `Check info about ${params.slug}`,
+  }
+}
 
 export default async function AuthorDetail({params}) {
   const category = await sanity.fetch(getCategoryDetail(params.slug))

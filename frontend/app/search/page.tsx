@@ -1,5 +1,14 @@
 import Link from 'next/link'
 
+export async function generateMetadata({searchParams}: any): Promise<Metadata> {
+  const query = searchParams.q || ''
+
+  return {
+    title: query ? `Search Results for "${query}"` : 'Search Results',
+    description: query ? `Showing search results matching "${query}"` : 'List of all the posts',
+  }
+}
+
 const SearchResultsPage = ({query, posts}) => {
   return (
     <div className="mt-10 bg-white min-h-screen">
@@ -55,6 +64,7 @@ const SearchResultsPage = ({query, posts}) => {
 import {sanity} from '@/lib/sanity'
 import {getSearchResultsQuery} from '@/lib/queries'
 import urlFor from '@/lib/image'
+import {Metadata} from 'next'
 
 // interface Props {
 //   searchParams: {q?: string}

@@ -16,6 +16,14 @@ import PopularPostCard from '@/components/atom/PopularPostCard'
 import Link from 'next/link'
 import CommentCard from '@/components/CommentCard'
 import AddCommentForm from '@/components/AddCommentForm'
+import {Metadata} from 'next'
+
+export async function generateMetadata({params}: any): Promise<Metadata> {
+  return {
+    title: params.slug,
+    description: `Check info about ${params.slug}`,
+  }
+}
 
 export default async function PostDetail({params}) {
   const post = await sanity.fetch(getPostBySlugQuery(params.slug))

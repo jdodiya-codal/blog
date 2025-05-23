@@ -1,7 +1,13 @@
 import urlFor from '@/lib/image'
 import {getCategoriesQuery} from '@/lib/queries'
 import {sanity} from '@/lib/sanity'
+import {Metadata} from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Categories',
+  description: 'Explore all the categories based on content driven',
+}
 
 const CategoriesPage = async () => {
   const categories = await sanity.fetch(getCategoriesQuery)

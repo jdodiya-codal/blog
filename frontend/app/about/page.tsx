@@ -1,4 +1,10 @@
+import {Metadata} from 'next'
 import React from 'react'
+
+export const metadata: Metadata = {
+  title: 'About Us',
+  description: 'Explore our united team members whos contribution leads the success of Impilo Pop',
+}
 
 const teamMembers = [
   {

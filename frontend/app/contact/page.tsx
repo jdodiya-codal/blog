@@ -1,8 +1,14 @@
 'use client'
 
+import {Metadata} from 'next'
 import {useState} from 'react'
 
 import React from 'react'
+
+export const metadata: Metadata = {
+  title: 'Contact Form',
+  description: 'Enter your info, so our team can reach out to you',
+}
 
 const ThankYouPage = () => {
   return (
