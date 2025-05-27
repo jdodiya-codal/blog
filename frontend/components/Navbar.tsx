@@ -14,7 +14,7 @@ export default function Navbar() {
     if (searchTerm.trim()) {
       // Navigate to search page with query param
       router.push(`/search?q=${encodeURIComponent(searchTerm.trim())}`)
-      setSearchTerm('')
+      // setSearchTerm('')
     }
   }
 
