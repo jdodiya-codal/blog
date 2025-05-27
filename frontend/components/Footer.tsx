@@ -89,7 +89,9 @@ export default async function Footer() {
               {categories.map((card, index) => (
                 <React.Fragment key={index}>
                   <Link href={`/category/${card.slug.current}`}>
-                    <p className="p-1 text-[#3E3232] text-[12px]">{card.title}</p>
+                    <p className="p-1 text-[#3E3232] text-[12px] hover:text-[#F81539]">
+                      {card.title}
+                    </p>
                   </Link>
                 </React.Fragment>
               ))}
