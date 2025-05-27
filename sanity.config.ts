@@ -11,8 +11,8 @@ export default defineConfig({
   name: 'default',
   title: 'Impilo Pop',
 
-  projectId: '911h91ed',
-  dataset: 'production',
+  projectId: process.env.PROJECT_ID || '',
+  dataset: process.env.DATASET || '',
 
   // studio: {
   //   components: {

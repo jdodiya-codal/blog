@@ -1,9 +1,10 @@
 // lib/sanity.js
 import {createClient} from '@sanity/client'
+import process from 'process'
 
 export const sanity = createClient({
-  projectId: '911h91ed', // Replace with your project ID
-  dataset: 'production', // Or your dataset name
-  apiVersion: '2023-01-01', // Use a fixed date
-  useCdn: false, // `false` if you want fresh data every time
+  projectId: process.env.PROJECT_ID,
+  dataset: process.env.DATASET,
+  apiVersion: process.env.API_VERSION,
+  useCdn: false,
 })

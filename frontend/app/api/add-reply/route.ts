@@ -2,11 +2,11 @@ import {NextResponse} from 'next/server'
 import {createClient} from '@sanity/client'
 
 const client = createClient({
-  projectId: '911h91ed', // Replace with your project ID
-  dataset: 'production', // Or your dataset name
-  apiVersion: '2023-01-01', // Use a fixed date
-  useCdn: false, // `false` if you want fresh data every time
-  token: process.env.SANITY_WRITE_TOKEN, // Set in .env
+  projectId: process.env.PROJECT_ID,
+  dataset: process.env.DATASET,
+  apiVersion: process.env.API_VERSION,
+  useCdn: false,
+  token: process.env.SANITY_WRITE_TOKEN,
 })
 
 export async function POST(req: Request) {
