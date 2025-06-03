@@ -55,7 +55,7 @@
 
 ## 🌐 Live Demo
 
-> Coming soon… (or replace with: [Live Demo](https://impilopop.vercel.app))
+> [Live Demo](https://impilopop.vercel.app)
 
 ---
 
