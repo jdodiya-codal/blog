@@ -15,7 +15,7 @@ export default async function Home() {
       <div className="rounded-[12px] flex mt-[40px] gap-6 p-2 bg-[#F5F5F5]">
         {categories.map((card, index) => (
           <React.Fragment key={index}>
-            <CategoryPill title={card.title} mainImage={card.mainImage} />
+            <CategoryPill title={card.title} mainImage={card.mainImage} slug={card.slug.current} />
           </React.Fragment>
         ))}
       </div>
